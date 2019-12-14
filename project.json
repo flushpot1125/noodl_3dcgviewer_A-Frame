@@ -1,0 +1,140 @@
+{
+    "name": "a-frame-test",
+    "components": [
+        {
+            "name": "/Main",
+            "graph": {
+                "connections": [],
+                "roots": [
+                    {
+                        "id": "2d3ccd33-f1ef-2dc5-3e1a-ca9d61cd222b",
+                        "type": "Group",
+                        "label": "Root",
+                        "x": 265,
+                        "y": 277,
+                        "parameters": {
+                            "fill": "parent"
+                        },
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": [
+                            {
+                                "id": "fa90ea16-1232-0437-deea-5dd6263d8247",
+                                "type": "Rectangle",
+                                "label": "Background",
+                                "x": 20,
+                                "y": 61,
+                                "parameters": {},
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            },
+                            {
+                                "id": "cf36f887-8279-6f6e-1d5f-b8c085dadfdf",
+                                "type": "HTML Content",
+                                "x": 20,
+                                "y": 122,
+                                "parameters": {
+                                    "html": "<!DOCTYPE html>\n<body>\n    \n      <a-assets>\n    <!--      \n          <a-asset-item id=\"crate-obj\" src=\"./model/christmastree/model.obj\"></a-asset-item>\n          <a-asset-item id=\"crate-mtl\" src=\"./model/christmastree/materials.mtl\"></a-asset-item>\n    -->      \n    <!--      \n          <a-asset-item id=\"crate-obj\" src=\"./model/presentbox/model.obj\"></a-asset-item>\n          <a-asset-item id=\"crate-mtl\" src=\"./model/presentbox/materials.mtl\"></a-asset-item>\n    -->\n    \n          <a-asset-item id=\"crate-obj\" src=\"./model/showglobe/model.obj\"></a-asset-item>\n          <a-asset-item id=\"crate-mtl\" src=\"./model/showglobe/materials.mtl\"></a-asset-item>\n    \n    　</a-assets>\n    \n    <a-scene background=\"color: #4682B4\">\n<!--\n      <a-box position=\"-1 0.5 -3\" rotation=\"0 45 0\" color=\"#4CC3D9\" shadow></a-box>\n      <a-sphere position=\"0 1.25 -5\" radius=\"1.25\" color=\"#EF2D5E\" shadow></a-sphere>\n      <a-cylinder position=\"1 0.75 -3\" radius=\"0.5\" height=\"1.5\" color=\"#FFC65D\" shadow></a-cylinder>\n      <a-plane position=\"0 0 -4\" rotation=\"-90 0 0\" width=\"4\" height=\"4\" color=\"#7BC8A4\" shadow></a-plane>\n-->\n      <a-obj-model scale=\"5 5 5\" position=\"0 0.5 -5\" src=\"#crate-obj\" mtl=\"#crate-mtl\"></a-obj-model>\n      \n   \n    </a-scene>\n</body>\n"
+                                },
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": "f93698fd-c614-df6b-e7b5-24730b1c2b80",
+                        "type": "Script Downloader",
+                        "label": "Script Downloader",
+                        "x": 4,
+                        "y": 345.5,
+                        "parameters": {
+                            "input 0": "https://aframe.io/releases/0.9.2/aframe.min.js"
+                        },
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": []
+                    },
+                    {
+                        "id": "18ea764e-9fee-324b-1428-02247703e441",
+                        "type": "Javascript2",
+                        "x": 650,
+                        "y": 818.5,
+                        "parameters": {
+                            "code": "define({\n    inputs: {\n        inputValue: \"number\",\n         scriptLoaded: \"string\",\n         domElement: \"domelement\",\n         objPath:\"string\",\n         mtlPath:\"string\",\n    },\n    outputs: {\n        outputValue: \"number\"\n    },\n    destroy: function(inputs, outputs) {\n\n    },\n    setup: function(inputs, outputs) {\n\n    },\n    run: function(inputs, outputs, changedInputs) {\n        if (!inputs.scriptLoaded) {\n                return;\n        }   \n        var id_obj = document.getElementById(\"crate-obj\");\n        id_obj.setAttribute(\"src\",inputs.objPath);\n        var id_mtl = document.getElementById(\"crate-mtl\");\n        id_mtl.setAttribute(\"src\",inputs.mtlPath);\n    }\n});",
+                            "objPath": "./model/christmastree/model.obj",
+                            "mtlPath": "./model/christmastree/materials.mtl"
+                        },
+                        "ports": [],
+                        "dynamicports": [
+                            {
+                                "name": "inputValue",
+                                "plug": "input",
+                                "type": {
+                                    "name": "number"
+                                },
+                                "group": "Inputs",
+                                "index": 2
+                            },
+                            {
+                                "name": "scriptLoaded",
+                                "plug": "input",
+                                "type": {
+                                    "name": "string"
+                                },
+                                "group": "Inputs",
+                                "index": 3
+                            },
+                            {
+                                "name": "domElement",
+                                "plug": "input",
+                                "type": {
+                                    "name": "domelement"
+                                },
+                                "group": "Inputs",
+                                "index": 4
+                            },
+                            {
+                                "name": "objPath",
+                                "plug": "input",
+                                "type": {
+                                    "name": "string"
+                                },
+                                "group": "Inputs",
+                                "index": 5
+                            },
+                            {
+                                "name": "mtlPath",
+                                "plug": "input",
+                                "type": {
+                                    "name": "string"
+                                },
+                                "group": "Inputs",
+                                "index": 6
+                            },
+                            {
+                                "name": "outputValue",
+                                "type": {
+                                    "name": "number"
+                                },
+                                "plug": "output",
+                                "group": "Outputs",
+                                "index": 7
+                            }
+                        ],
+                        "children": []
+                    }
+                ]
+            }
+        }
+    ],
+    "settings": {
+        "devices": "Default Device",
+        "Default Device.fillMode": "aspectFit",
+        "Default Device.canvasWidth": 1080,
+        "Default Device.canvasHeight": 1920
+    },
+    "rootNodeId": "2d3ccd33-f1ef-2dc5-3e1a-ca9d61cd222b",
+    "version": "1"
+}
