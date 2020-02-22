@@ -10,7 +10,7 @@ Use Noodl ver 1.3.1
 
 [Google Poly](https://poly.google.com/) is a good provider.
 
-".glft" is recommended.
+".gltf" is recommended.
 
 ## Get Noodl
 
